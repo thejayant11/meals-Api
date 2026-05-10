@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feast — Meal Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Feast<em>.</em></div>
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="search" placeholder="Search meals, ingredients…" />
+    </div>
+    <div class="filter-pills" id="categoryPills"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Discover <em>world cuisine</em><br>in one place</h1>
+  <p>Browse hundreds of authentic recipes from across the globe</p>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">Showing <strong id="countLabel">—</strong> meals</div>
+    <div class="stat" id="categoryLabel"></div>
+    <select class="sort-select" id="sortSelect">
+      <option value="default">Sort: Default</option>
+      <option value="az">Name A–Z</option>
+      <option value="za">Name Z–A</option>
+    </select>
+  </div>
+</div>
+
+<main>
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+    <span>Loading meals…</span>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div id="emptyState" class="empty-state" style="display:none">
+    <h3>No meals found</h3>
+    <p>Try a different search or category filter.</p>
+  </div>
+  <div class="pagination" id="pagination"></div>
+</main>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal">
+    <img class="modal-img" id="modalImg" src="" alt="" />
+    <div class="modal-body">
+      <div class="modal-header">
+        <div id="modalTitle" class="modal-title"></div>
+        <button class="close-btn" id="closeModal">✕</button>
+      </div>
+      <div class="card-tags" id="modalTags"></div>
+      <div class="modal-section">
+        <h4>Ingredients</h4>
+        <div class="ingredients-grid" id="modalIngredients"></div>
+      </div>
+      <div class="modal-section" id="modalInstructionsSection">
+        <h4>Instructions</h4>
+        <div class="instructions-text" id="modalInstructions"></div>
+      </div>
+      <div id="modalYoutube"></div>
+    </div>
+  </div>
+</div>
+
+<script src="./index.js"></script>
+</body>
+</html>
